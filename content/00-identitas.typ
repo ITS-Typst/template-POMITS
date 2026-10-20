@@ -20,6 +20,8 @@
     #text(size: 24pt)[#eval(data.judul, mode: "markup")]
   ]
 
+  #place(right, dx: -0.5cm, dy: -1em, rotate(-9deg, image("../assets/IMPORTANT.png", width: 4cm)))
+
   #v(2.4em)
   #text(size: 11pt)[
     #join-nama(data.penulis) \
