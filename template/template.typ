@@ -35,14 +35,24 @@
     linebreaks: "optimized",
   )
 
+  // Judul gambar: di bawah, rata kiri-kanan. Judul tabel: di atas, rata tengah.
   show figure.caption: it => {
-    set align(left)
-    set par(justify: true, first-line-indent: (amount: 0cm, all: true))
     set text(size: 8pt)
+    if it.kind == table {
+      set align(center)
+      set par(justify: false, first-line-indent: (amount: 0cm, all: true))
+    } else {
+      set align(left)
+      set par(justify: true, first-line-indent: (amount: 0cm, all: true))
+    }
     it
   }
 
   show figure: it => block(below: 1.2em)[#it]
+
+  // Persamaan: diberi nomor dalam kurung, rata kanan (bawaan Typst).
+  set math.equation(numbering: "(1)")
+  show math.equation.where(block: true): it => block(above: 1em, below: 1em)[#it]
 
   heading-rules(body)
 }
