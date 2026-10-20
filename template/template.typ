@@ -35,5 +35,14 @@
     linebreaks: "optimized",
   )
 
+  show figure.caption: it => {
+    set align(left)
+    set par(justify: true, first-line-indent: (amount: 0cm, all: true))
+    set text(size: 8pt)
+    it
+  }
+
+  show figure: it => block(below: 1.2em)[#it]
+
   heading-rules(body)
 }
